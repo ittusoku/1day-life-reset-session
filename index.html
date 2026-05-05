@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1Day ライフリセット・セッション | OUCA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ─── Reset & Base ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:     #1a1a2e;
+  --moss:    #4a6741;
+  --moss-lt: #7a9a72;
+  --washi:   #f7f4ef;
+  --cream:   #f0ece4;
+  --gold:    #b8a070;
+  --smoke:   #e8e4dc;
+  --mist:    #6b6860;
+  --white:   #ffffff;
+  --red:     #c0392b;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--washi);
+  color: var(--ink);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  line-height: 1.9;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Wrapper: 全セクション中央揃え ─── */
+.lp-wrap {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ─── Scroll Reveal ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.45s; }
+
+/* ─── Typography ─── */
+.font-mincho { font-family: 'Shippori Mincho', serif; }
+.font-en     { font-family: 'Cormorant Garamond', serif; }
+
+/* ─── BUZZ BANNER ─── */
+.buzz-banner {
+  background: #111824;
+  width: 100%;
+}
+.buzz-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.buzz-x {
+  width: 32px; height: 32px;
+  background: #1e2d1c;
+  border: 1px solid #3a5a36;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; color: #7a9a72;
+  flex-shrink: 0;
+}
+.buzz-text { flex: 1; font-size: 12px; color: #b0c8a8; line-height: 1.6; }
+.buzz-text strong { color: #7faa77; }
+.buzz-num { text-align: right; flex-shrink: 0; }
+.buzz-num .big { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #7a9a72; display: block; line-height: 1; }
+.buzz-num .small { font-size: 10px; color: #4a6a44; letter-spacing: 0.1em; display: block; margin-top: 2px; }
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--ink);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.07);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 60px 36px 52px;
+  position: relative;
+  z-index: 1;
+}
+.hero-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--moss-lt);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 20px;
+}
+.hero-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: rgba(240,237,230,0.38);
+  display: block;
+  margin-bottom: 14px;
+}
+.hero-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 500;
+  color: #f0ede6;
+  line-height: 1.45;
+  margin-bottom: 6px;
+}
+.hero-title em {
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05em;
+  color: #b8d4b0;
+}
+.hero-sub {
+  font-size: 13px;
+  color: rgba(240,237,230,0.55);
+  line-height: 2;
+  margin-top: 22px;
+  max-width: 500px;
+}
+
+/* Monitor Badge */
+.monitor-badge {
+  margin-top: 32px;
+  background: rgba(42,58,40,0.7);
+  border: 1px solid rgba(74,103,65,0.6);
+  border-radius: 4px;
+  padding: 18px 22px;
+  backdrop-filter: blur(4px);
+}
+.monitor-badge-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--moss-lt);
+  text-transform: uppercase;
+  font-family: 'Cormorant Garamond', serif;
+  display: block;
+  margin-bottom: 10px;
+}
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.price-orig { font-size: 13px; color: rgba(240,237,230,0.3); text-decoration: line-through; }
+.price-now {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: #f0ede6;
+}
+.price-now span { font-size: 13px; color: rgba(240,237,230,0.4); margin-left: 3px; }
+.price-off {
+  background: var(--moss-lt);
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+.monitor-detail { font-size: 11px; color: rgba(240,237,230,0.38); margin-top: 7px; line-height: 1.7; }
+.monitor-limit {
+  margin-top: 9px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--moss-lt);
+}
+.limit-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--moss-lt); flex-shrink: 0; }
+
+.hero-cta {
+  display: block;
+  margin-top: 26px;
+  background: var(--moss-lt);
+  color: var(--ink);
+  text-align: center;
+  padding: 15px 24px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+  text-decoration: none;
+  transition: background 0.25s, opacity 0.25s;
+  width: 100%;
+}
+.hero-cta:hover { background: #8fbd87; }
+
+/* ─── Section Common ─── */
+.section { width: 100%; }
+.section-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 60px 36px;
+}
+.sec-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  color: var(--moss);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 22px;
+}
+.sec-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(20px, 3.5vw, 26px);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.55;
+}
+.sec-title em {
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--moss);
+  font-size: 1.05em;
+}
+.sec-body {
+  font-size: 13.5px;
+  color: #444;
+  line-height: 2;
+  margin-top: 20px;
+}
+
+/* ─── HOOK ─── */
+.hook { background: var(--washi); }
+.hook-insight {
+  margin-top: 30px;
+  padding: 20px 24px;
+  border-left: 2px solid var(--moss);
+  background: rgba(74,103,65,0.06);
+  border-radius: 0 4px 4px 0;
+}
+.hook-insight p {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #2a3a28;
+  line-height: 1.85;
+}
+
+/* ─── FOR YOU ─── */
+.for-you { background: var(--white); }
+.sec-note { font-size: 12px; color: var(--mist); margin-top: 8px; }
+
+.fy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 28px;
+}
+@media (max-width: 520px) { .fy-grid { grid-template-columns: 1fr; } }
+
+.fy-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--washi);
+  border: 0.5px solid var(--smoke);
+  border-radius: 4px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.fy-item:hover { border-color: var(--moss-lt); background: rgba(74,103,65,0.04); }
+.fy-check {
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  background: #eaf3e6;
+  border: 0.5px solid var(--moss);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 2px;
+}
+.fy-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--moss); }
+.fy-text { font-size: 12px; color: #2a2a2a; line-height: 1.75; }
+
+.fy-not {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: var(--ink);
+  border-radius: 4px;
+}
+.fy-not-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--moss-lt);
+  text-transform: uppercase;
+  font-family: 'Cormorant Garamond', serif;
+  display: block;
+  margin-bottom: 8px;
+}
+.fy-not-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14px;
+  color: rgba(240,237,230,0.65);
+  line-height: 1.75;
+  font-style: italic;
+}
+
+/* ─── PVS ─── */
+.pvs { background: var(--washi); }
+.pvs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 28px;
+}
+@media (max-width: 520px) { .pvs-grid { grid-template-columns: 1fr; } }
+.pvs-card {
+  padding: 22px 18px;
+  border-radius: 4px;
+  border: 0.5px solid var(--smoke);
+}
+.pvs-card.prob { background: #f9f9f7; }
+.pvs-card.sol  { background: #f0f5ef; border-color: var(--moss-lt); }
+.pvs-lbl {
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 14px; font-weight: 500;
+}
+.pvs-card.prob .pvs-lbl { color: #aaa; }
+.pvs-card.sol  .pvs-lbl { color: var(--moss); }
+.pvs-row {
+  font-size: 12px; line-height: 1.9; color: #444;
+  padding: 5px 0;
+  border-bottom: 0.5px solid rgba(0,0,0,0.04);
+  display: flex; align-items: flex-start; gap: 7px;
+}
+.pvs-row:last-child { border-bottom: none; }
+.pvs-nd { color: #ccc; flex-shrink: 0; margin-top: 2px; }
+.pvs-yd { color: var(--moss); flex-shrink: 0; margin-top: 2px; }
+
+/* ─── WHAT ─── */
+.what { background: var(--ink); }
+.what .sec-label { color: var(--moss-lt); }
+.what .sec-title { color: #f0ede6; }
+.what .sec-title em { color: #b8d4b0; }
+.what-sub { font-size: 12px; color: rgba(240,237,230,0.4); line-height: 1.85; margin-top: 16px; }
+
+.steps { margin-top: 36px; }
+.step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 0.5px solid rgba(255,255,255,0.07);
+}
+.step:last-child { border-bottom: none; }
+.step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--moss-lt);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 30px;
+}
+.step-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14.5px;
+  color: #f0ede6;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.step-desc { font-size: 11.5px; color: rgba(240,237,230,0.48); line-height: 1.9; }
+
+/* 省エネ強調バッジ */
+.energy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(74,103,65,0.25);
+  border: 0.5px solid var(--moss-lt);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 11px;
+  color: #b8d4b0;
+  margin-top: 14px;
+  letter-spacing: 0.05em;
+}
+.energy-badge::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--moss-lt);
+  flex-shrink: 0;
+}
+
+/* ─── VOICE ─── */
+.voice { background: var(--washi); }
+.voice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 28px;
+}
+@media (max-width: 520px) { .voice-grid { grid-template-columns: 1fr; } }
+.vcard {
+  background: var(--white);
+  border: 0.5px solid var(--smoke);
+  border-radius: 4px;
+  padding: 20px;
+  transition: border-color 0.2s;
+}
+.vcard:hover { border-color: var(--moss-lt); }
+.vq {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.85;
+  color: #2a2a2a;
+}
+.vmeta { margin-top: 14px; font-size: 11px; color: #aaa; letter-spacing: 0.04em; }
+.vchange { margin-top: 5px; font-size: 11px; color: var(--moss); font-weight: 500; }
+
+/* ─── PROGRAM ─── */
+.program { background: var(--white); }
+.timeline { margin-top: 32px; position: relative; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 17px; top: 0; bottom: 0;
+  width: 0.5px;
+  background: var(--smoke);
+}
+.tli {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 0 0 26px;
+  position: relative;
+}
+.tl-dot {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: #f0f5ef;
+  border: 0.5px solid var(--moss);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px;
+  color: var(--moss);
+  font-weight: 500;
+  z-index: 1;
+}
+.tl-dot.rest { background: #fff9f0; border-color: #d4a56a; color: #8a6030; }
+.tl-time { font-size: 11px; color: #aaa; letter-spacing: 0.04em; margin-bottom: 3px; }
+.tl-title { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+.tl-desc { font-size: 11.5px; color: #666; line-height: 1.8; }
+
+/* ─── FOUNDER ─── */
+.founder { background: var(--washi); }
+.founder-inner { display: flex; gap: 26px; align-items: flex-start; }
+@media (max-width: 480px) { .founder-inner { flex-direction: column; } }
+.founder-icon {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--ink);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--moss-lt);
+}
+.founder-name { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+.founder-role {
+  font-size: 10px;
+  color: var(--moss);
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+  font-family: 'Cormorant Garamond', serif;
+}
+.founder-text { font-size: 12.5px; color: #555; line-height: 2.05; }
+
+/* ─── 省エネに向いている理由 ─── */
+.energy-section { background: var(--white); }
+.energy-list { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+.energy-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  background: var(--washi);
+  border-left: 2px solid var(--moss);
+  border-radius: 0 4px 4px 0;
+}
+.energy-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--moss-lt);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 22px;
+}
+.energy-title { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+.energy-desc { font-size: 12px; color: #555; line-height: 1.85; }
+
+/* ─── FAQ ─── */
+.faq { background: var(--washi); }
+.faq-list { margin-top: 8px; }
+.faq-item {
+  padding: 20px 0;
+  border-bottom: 0.5px solid var(--smoke);
+  cursor: pointer;
+}
+.faq-item:first-child { border-top: 0.5px solid var(--smoke); }
+.faq-q {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+.faq-q span:last-child {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--moss);
+  flex-shrink: 0;
+  line-height: 1.3;
+  transition: transform 0.3s;
+}
+.faq-item.open .faq-q span:last-child { transform: rotate(45deg); }
+.faq-a {
+  font-size: 12.5px;
+  color: #666;
+  line-height: 1.95;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s;
+  padding-top: 0;
+}
+.faq-item.open .faq-a { max-height: 300px; padding-top: 12px; }
+
+/* ─── CTA FOOTER ─── */
+.cta-footer { background: var(--ink); }
+.cta-footer .section-inner { text-align: center; }
+.cta-circle {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(122,154,114,0.35);
+  margin: 0 auto 22px;
+}
+.cta-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  color: rgba(240,237,230,0.28);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 18px;
+}
+.cta-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 500;
+  color: #f0ede6;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.cta-title em {
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  color: #b8d4b0;
+}
+.cta-sub { font-size: 12px; color: rgba(240,237,230,0.42); line-height: 1.95; margin-bottom: 28px; }
+
+.monitor-box-cta {
+  display: inline-block;
+  background: rgba(42,58,40,0.7);
+  border: 1px solid rgba(74,103,65,0.55);
+  border-radius: 4px;
+  padding: 14px 32px;
+  margin-bottom: 24px;
+}
+.mbox-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--moss-lt);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 7px;
+}
+.mbox-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  justify-content: center;
+}
+.m-orig { font-size: 13px; color: rgba(240,237,230,0.28); text-decoration: line-through; }
+.m-now  { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: #f0ede6; font-weight: 300; }
+.m-now span { font-size: 12px; color: rgba(240,237,230,0.38); }
+.m-off  { background: var(--moss-lt); color: var(--ink); font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 2px; }
+
+.cta-btn {
+  display: block;
+  background: var(--moss-lt);
+  color: var(--ink);
+  padding: 16px 40px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+  width: 100%;
+  text-decoration: none;
+  transition: background 0.25s;
+}
+.cta-btn:hover { background: #8fbd87; }
+.cta-note { font-size: 11px; color: rgba(240,237,230,0.26); margin-top: 14px; line-height: 1.75; }
+
+/* ─── Responsive ─── */
+@media (max-width: 600px) {
+  .section-inner, .hero-inner, .buzz-inner { padding-left: 24px; padding-right: 24px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ══ BUZZ BANNER ══ -->
+<div class="buzz-banner">
+  <div class="buzz-inner">
+    <div class="buzz-x">X</div>
+    <div class="buzz-text">
+      あのXで<strong>1.7億回表示・爆バズり</strong>した投稿<br>
+      「How to fix your entire life in 1 day」が、プロコーチの伴走で確実に取り組める。
+    </div>
+    <div class="buzz-num">
+      <span class="big">1.7億</span>
+      <span class="small">インプレッション</span>
+    </div>
+  </div>
+</div>
+
+<div class="lp-wrap">
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag reveal">OUCA × 1Day Life Reset Session — Monitor Price</span>
+    <span class="hero-en reveal reveal-delay-1">How to fix your entire life in 1 day</span>
+    <h1 class="hero-title reveal reveal-delay-2">
+      内側の声が変われば、<br><em>外側の景色が変わる。</em>
+    </h1>
+    <p class="hero-sub reveal reveal-delay-3">
+      プロコーチが1日伴走。<br>
+      自分では気づけなかった「本当の望み」を一緒に掘り起こし、<br>
+      <strong style="color:rgba(240,237,230,0.8)">腑に落ちたレベル</strong>で人生の方向を決め直す、たった1日のセッション。
+    </p>
+
+    <div class="monitor-badge reveal reveal-delay-4">
+      <span class="monitor-badge-label">モニター限定価格</span>
+      <div class="price-row">
+        <span class="price-orig">¥25,000</span>
+        <span class="price-now">¥12,500 <span>（税込）</span></span>
+        <span class="price-off">50% OFF</span>
+      </div>
+      <div class="monitor-detail">Zoom完結 ・ 約8〜9時間 ・ 完全個別対応</div>
+      <div class="monitor-limit"><div class="limit-dot"></div>モニター枠：残り数名限定 ・ 正規料金移行前の特別価格</div>
+    </div>
+
+    <a href="https://forms.gle/EutYipVKerKhEj1B9" target="_blank"  class="hero-cta reveal reveal-delay-4">モニター枠に申し込む ↗</a>
+  </div>
+</section>
+
+
+<!-- ══ HOOK ══ -->
+<section class="section hook">
+  <div class="section-inner">
+    <span class="sec-label reveal">The Feeling You Know</span>
+    <h2 class="sec-title reveal">
+      「何かが違う」と感じながら、<br>
+      その<em>「何か」</em>が分からないまま<br>
+      日々をやり過ごしていませんか？
+    </h2>
+    <p class="sec-body reveal">
+      本を読んでも、セミナーに行っても、しばらくすると元に戻る。<br>
+      「やる気」や「意志の強さ」の問題じゃないことは、なんとなく分かっている。<br><br>
+      でも、どこから変えればいいのか分からない。<br>
+      そもそも、自分が本当に何を望んでいるのかも、<br>実はよく分かっていない。
+    </p>
+    <div class="hook-insight reveal">
+      <p>
+        その「違和感」は、弱さではありません。<br>
+        それはあなたの内側が発している、<br>
+        人生のコンパスです。
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOR YOU ══ -->
+<section class="section for-you">
+  <div class="section-inner">
+    <span class="sec-label reveal">This Is For You</span>
+    <h2 class="sec-title reveal">こんな方へ</h2>
+    <p class="sec-note reveal">「これ、私のことだ」と感じたら、このセッションはあなたのためにあります。</p>
+
+    <div class="fy-grid">
+      <div class="fy-item reveal reveal-delay-1">
+        <div class="fy-check"><div class="fy-dot"></div></div>
+        <p class="fy-text">プロトコルを読んだが、<strong>一人ではやり切る自信がない</strong></p>
+      </div>
+      <div class="fy-item reveal reveal-delay-1">
+        <div class="fy-check"><div class="fy-dot"></div></div>
+        <p class="fy-text">本やセミナーで「分かった気」になるが、すぐ元に戻る</p>
+      </div>
+      <div class="fy-item reveal reveal-delay-2">
+        <div class="fy-check"><div class="fy-dot"></div></div>
+        <p class="fy-text">何かを変えたいけど、<strong>何から始めればいいか分からない</strong></p>
+      </div>
+      <div class="fy-item reveal reveal-delay-2">
+        <div class="fy-check"><div class="fy-dot"></div></div>
+        <p class="fy-text">自分の「本当にやりたいこと」が分からないまま生きている</p>
+      </div>
+      <div class="fy-item reveal reveal-delay-3">
+        <div class="fy-check"><div class="fy-dot"></div></div>
+        <p class="fy-text"><strong>感受性が高く</strong>、人より深く悩みやすい・考えすぎてしまう</p>
+      </div>
+      <div class="fy-item reveal reveal-delay-3">
+        <div class="fy-check"><div class="fy-dot"></div></div>
+        <p class="fy-text">「腑に落ちた」感覚で動けたことが、<strong>これまで一度もない</strong></p>
+      </div>
+      <div class="fy-item reveal reveal-delay-4">
+        <div class="fy-check"><div class="fy-dot"></div></div>
+        <p class="fy-text">エネルギーを大量に使うより、<strong>ここぞの場面に集中して使いたい</strong>タイプ</p>
+      </div>
+      <div class="fy-item reveal reveal-delay-4">
+        <div class="fy-check"><div class="fy-dot"></div></div>
+        <p class="fy-text">今の人生に違和感があるが、それを「当たり前」と思って諦めている</p>
+      </div>
+    </div>
+
+    <div class="fy-not reveal">
+      <span class="fy-not-label">反対に、こんな方には合わないかもしれません</span>
+      <p class="fy-not-text">
+        すでに明確なビジョンがあり、あとは行動するだけという方・<br>
+        即効性のある「稼ぎ方」や「テクニック」を求めている方・<br>
+        とにかく大量行動でぶつかっていきたい方
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PVS ══ -->
+<section class="section pvs">
+  <div class="section-inner">
+    <span class="sec-label reveal">Why It's Hard Alone</span>
+    <h2 class="sec-title reveal">一人でやっても<br>うまくいかない理由がある</h2>
+    <div class="pvs-grid">
+      <div class="pvs-card prob reveal">
+        <div class="pvs-lbl">一人でやると</div>
+        <div class="pvs-row"><span class="pvs-nd">—</span>途中で詰まって止まる</div>
+        <div class="pvs-row"><span class="pvs-nd">—</span>表面的な答えで満足する</div>
+        <div class="pvs-row"><span class="pvs-nd">—</span>感情が出ても処理できない</div>
+        <div class="pvs-row"><span class="pvs-nd">—</span>最後まで終わらず翌日持ち越し</div>
+        <div class="pvs-row"><span class="pvs-nd">—</span>「腑に落ちた」感覚がない</div>
+        <div class="pvs-row"><span class="pvs-nd">—</span>エネルギーを消耗して終わる</div>
+      </div>
+      <div class="pvs-card sol reveal reveal-delay-1">
+        <div class="pvs-lbl">伴走セッションでは</div>
+        <div class="pvs-row"><span class="pvs-yd">○</span>詰まった瞬間に別の問いで深掘り</div>
+        <div class="pvs-row"><span class="pvs-yd">○</span>本音が出るまで一緒に掘り続ける</div>
+        <div class="pvs-row"><span class="pvs-yd">○</span>感情を変化の燃料にする</div>
+        <div class="pvs-row"><span class="pvs-yd">○</span>1日で完遂、翌日から動ける</div>
+        <div class="pvs-row"><span class="pvs-yd">○</span>心と身体の両方で腑に落ちる</div>
+        <div class="pvs-row"><span class="pvs-yd">○</span>備蓄エネルギーを「ここぞ」で使える</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ 省エネタイプに向いている理由 ══ -->
+<section class="section energy-section">
+  <div class="section-inner">
+    <span class="sec-label reveal">For Quiet Energy Type</span>
+    <h2 class="sec-title reveal">感受性の高い省エネタイプに<br>特に向いている理由</h2>
+    <p class="sec-body reveal">
+      このセッションは、エネルギーを外に放出し続けるタイプではなく、<br>
+      <strong>内側に深く潜り、ここぞで動くタイプ</strong>のために設計されています。
+    </p>
+
+    <div class="energy-list">
+      <div class="energy-item reveal">
+        <div class="energy-num">1</div>
+        <div>
+          <div class="energy-title">「整えてから深める」設計</div>
+          <div class="energy-desc">静かなZoom環境で、問いに向き合い内省するスタイル。動きながら考えるのではなく、自分を整えながら深めていく——省エネタイプが最も力を発揮する場面です。</div>
+        </div>
+      </div>
+      <div class="energy-item reveal">
+        <div class="energy-num">2</div>
+        <div>
+          <div class="energy-title">「フォーカス型」の省動性に合った構造</div>
+          <div class="energy-desc">大量行動ではなく、少ない問いに深く集中する設計。エネルギーを分散させず「ここぞの1日」に備蓄エネルギーを一気に使う使い方です。</div>
+        </div>
+      </div>
+      <div class="energy-item reveal">
+        <div class="energy-num">3</div>
+        <div>
+          <div class="energy-title">「自己完結」を言語化・外在化する場</div>
+          <div class="energy-desc">省エネタイプは気づきがあっても自己完結して終わりがち。コーチが伴走して言語化・外に出すことで、これまで一人では届かなかった深さに到達します。</div>
+        </div>
+      </div>
+      <div class="energy-item reveal">
+        <div class="energy-num">4</div>
+        <div>
+          <div class="energy-title">「テリトリー」を守りながら変容できる</div>
+          <div class="energy-desc">大人数のセミナーや飲み会ではなく、完全個別・Zoom・1対1の静かな空間。省エネタイプが最も安心して本音を出せる環境です。</div>
+        </div>
+      </div>
+      <div class="energy-item reveal">
+        <div class="energy-num">5</div>
+        <div>
+          <div class="energy-title">「自分の状態」が成果につながる</div>
+          <div class="energy-desc">省エネタイプは「何をするか」より「どんな状態でいるか」が成果に直結します。このセッションはまさに自分の内側の状態（感情・信念・アイデンティティ）を徹底的に扱うものです。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ WHAT ══ -->
+<section class="section what">
+  <div class="section-inner">
+    <span class="sec-label reveal">What Happens In 1 Day</span>
+    <h2 class="sec-title reveal">1日で、何が<em>変わる</em>のか</h2>
+    <p class="what-sub reveal">
+      Dan Koeのプロトコルをベースに、OUCAの「在り方デザイン」の視点を加えた完全個別セッション。<br>
+      頭の理解ではなく、内側から変わる体験をします。
+    </p>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">痛みの発掘　— 本当の違和感を言葉にする</div>
+          <div class="step-desc">「当たり前だから」と慣れて生きてきた不満を、プロコーチの問いで言語化。表面的な愚痴の奥にある、本当の望みへの入口を開く。</div>
+          <span class="energy-badge">省エネTip：一人では言語化しにくい本音を、問いで引き出します</span>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">アンチビジョン　— 「このままでは嫌だ」を燃料にする</div>
+          <div class="step-desc">5年後・10年後・人生最後の日を、身体感覚で感じる。内臓が「嫌だ」と反応する感覚が、変化の本当の原動力になる。</div>
+          <span class="energy-badge">省エネTip：この感情が「備蓄エネルギー」になります</span>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">在り方の言語化　— 「私は○○な人間だ」を決める</div>
+          <div class="step-desc">3年後の理想の一日を描き、その人生を「自然」に感じるための自己像を言葉にする。これがOUCAの「在り方」の核心。</div>
+          <span class="energy-badge">省エネTip：整えた状態だから、本来の答えが出てきます</span>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-title">人生のゲーム化　— 明日から動く設計図を作る</div>
+          <div class="step-desc">1年・1ヶ月・明日のアクションを具体的に設計。「いつか」ではなく「明日の火曜日に何をするか」まで決めて終わる。</div>
+          <span class="energy-badge">省エネTip：フォーカスした1アクションが全てを変えます</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ VOICE ══ -->
+<section class="section voice">
+  <div class="section-inner">
+    <span class="sec-label reveal">Voices</span>
+    <h2 class="sec-title reveal">参加者の声</h2>
+    <div class="voice-grid">
+      <div class="vcard reveal">
+        <p class="vq">「問題だと思っていた自分が、ずっと自分を守っていたんだと気づいた瞬間、涙が止まらなかった。」</p>
+        <div class="vmeta">30代・会社員</div>
+        <div class="vchange">→ 翌週、10年悩んでいた転職を決断</div>
+      </div>
+      <div class="vcard reveal reveal-delay-1">
+        <p class="vq">「一人でワークをやっても全然刺さらなかったのに、一緒にやったら2時間で答えが出てきた。」</p>
+        <div class="vmeta">40代・フリーランス</div>
+        <div class="vchange">→ ビジョンが明確になり行動が加速</div>
+      </div>
+      <div class="vcard reveal reveal-delay-2">
+        <p class="vq">「『腑に落ちる』ってこういうことかと初めて分かった。頭じゃなく、身体で分かる感覚があった。」</p>
+        <div class="vmeta">30代・子育て中</div>
+        <div class="vchange">→ 自己否定が減り、自分を信じ始めた</div>
+      </div>
+      <div class="vcard reveal reveal-delay-3">
+        <p class="vq">「一人でやると毎回エネルギー切れで終わっていたが、今回は最後まで深められた。」</p>
+        <div class="vmeta">40代・HSP気質</div>
+        <div class="vchange">→ 本当に向かいたい方向が初めて見えた</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PROGRAM ══ -->
+<section class="section program">
+  <div class="section-inner">
+    <span class="sec-label reveal">1 Day Schedule</span>
+    <h2 class="sec-title reveal">1日のスケジュール</h2>
+    <div class="timeline">
+      <div class="tli reveal">
+        <div class="tl-dot">AM</div>
+        <div>
+          <div class="tl-time">9:00 — 12:00</div>
+          <div class="tl-title">心理的発掘　痛み・アンチビジョン・在り方</div>
+          <div class="tl-desc">一人では届かない「本音の層」まで、プロコーチの問いで一緒に掘り下げる。整えた状態から始めるので、省エネタイプが最も深く入れる時間帯。</div>
+        </div>
+      </div>
+      <div class="tli reveal">
+        <div class="tl-dot rest">休</div>
+        <div>
+          <div class="tl-time">12:00 — 13:00</div>
+          <div class="tl-title">昼休憩　+ セルフ問いかけ設定</div>
+          <div class="tl-desc">省エネタイプにとって重要な回復時間。午前の気づきを静かに定着させる。スマホに問いかけアラームをセット。</div>
+        </div>
+      </div>
+      <div class="tli reveal">
+        <div class="tl-dot">PM</div>
+        <div>
+          <div class="tl-time">13:00 — 17:00</div>
+          <div class="tl-title">深掘り・ビジョン設計・在り方の言語化</div>
+          <div class="tl-desc">アイデンティティの核心に踏み込み、3年後の理想の在り方を言語化する。備蓄したエネルギーを「ここぞ」で使う場面。</div>
+        </div>
+      </div>
+      <div class="tli reveal">
+        <div class="tl-dot">夜</div>
+        <div>
+          <div class="tl-time">17:00 — 19:00</div>
+          <div class="tl-title">洞察の統合　+ 明日のゲーム設計</div>
+          <div class="tl-desc">1年・1ヶ月・明日のアクションをフォーカスして決定。大量行動ではなく、「ここだけやれば動き出す」1アクションまで絞って終わる。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOUNDER ══ -->
+<section class="section founder">
+  <div class="section-inner">
+    <span class="sec-label reveal">About The Coach</span>
+    <div class="founder-inner">
+      <div class="founder-icon">い</div>
+      <div class="reveal">
+        <div class="founder-name">いっそく</div>
+        <div class="founder-role">在り方デザインコーチ / OUCA Founder</div>
+        <p class="founder-text">
+          幼少期から「何かが違う」という違和感を抱えて生きてきました。<br>
+          社会に馴染もうとするほど、自分を失っていった。<br><br>
+          HSP特性との出会い、アドラー心理学、神経科学、哲学との出会いを経て、
+          「違和感は弱さではなく、本来の自分へのコンパスだった」と気づいたとき、
+          人生が動き始めました。<br><br>
+          省エネタイプだからこそ、自分の内側に答えがある——<br>
+          その答えを一緒に掘り起こします。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FAQ ══ -->
+<section class="section faq">
+  <div class="section-inner">
+    <span class="sec-label reveal">FAQ</span>
+    <h2 class="sec-title reveal">よくある質問</h2>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q"><span>コーチングの経験がない人でも大丈夫ですか？</span><span>+</span></div>
+        <div class="faq-a">まったく問題ありません。「今の自分に違和感がある」という感覚だけあれば参加できます。むしろコーチングが初めての方のほうが、フレッシュな気づきが多い傾向があります。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>「何を話せばいいか分からない」でも大丈夫ですか？</span><span>+</span></div>
+        <div class="faq-a">大丈夫です。必要なのは「正しい答え」ではなく「正直な感覚」だけ。詰まったときはコーチが別の角度から問い直します。省エネタイプの方はこのスタイルに特に向いています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>8〜9時間は長くて体力的に心配です</span><span>+</span></div>
+        <div class="faq-a">省エネタイプの方の「体力的な不安」は当然です。このセッションは大量に動き続けるのではなく、静かに内側と向き合う設計なので消耗型ではありません。昼休憩もしっかり設けています。また「備蓄エネルギーをここぞで使う」という省エネタイプの得意な使い方そのものです。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>モニター価格の条件はありますか？</span><span>+</span></div>
+        <div class="faq-a">セッション終了後に、率直な感想・フィードバックをいただくことのみお願いしています。SNS投稿・実名公開は不要です。内容の守秘義務は厳守します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Zoomのみで完結しますか？</span><span>+</span></div>
+        <div class="faq-a">はい、Zoom（無料）のみで完結します。必要なものはペン・ノート・飲み物と、集中できる静かな場所のみです。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>セッション後のサポートはありますか？</span><span>+</span></div>
+        <div class="faq-a">翌日にフォローアップメッセージをお送りします。継続的な変容支援が必要な方には、3ヶ月伴走の「OBRA Program」（全6回）もご案内しています。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CTA FOOTER ══ -->
+<section class="section cta-footer" id="form">
+  <div class="section-inner">
+    <div class="cta-circle reveal"></div>
+    <span class="cta-en reveal">Monitor Price — Limited Spots</span>
+    <h2 class="cta-title reveal">内側の声が変われば、<br><em>外側の景色が変わる。</em></h2>
+    <p class="cta-sub reveal">
+      正しい答えは不要。必要なのは、正直な感覚だけ。<br>
+      1日かけて、あなたの中にある答えを一緒に掘り起こします。
+    </p>
+    <div class="monitor-box-cta reveal">
+      <span class="mbox-label">モニター限定価格</span>
+      <div class="mbox-row">
+        <span class="m-orig">¥25,000</span>
+        <span class="m-now">¥12,500 <span>（税込）</span></span>
+        <span class="m-off">50% OFF</span>
+      </div>
+    </div>
+    <a href="https://forms.gle/EutYipVKerKhEj1B9" target="_blank"  class="cta-btn reveal">モニター枠に申し込む ↗</a>
+    <p class="cta-note reveal">Zoom完結 ・ 完全個別対応 ・ 枠に達し次第モニター価格終了<br>お申し込み後、24時間以内に日程調整のご連絡をいたします</p>
+  </div>
+</section>
+
+</div><!-- /.lp-wrap -->
+
+
+<script>
+// Scroll Reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => observer.observe(el));
+
+// Hero elements visible on load
+document.querySelectorAll('.hero .reveal').forEach(el => {
+  setTimeout(() => el.classList.add('visible'), 100);
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+
+</body>
+</html>
